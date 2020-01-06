@@ -1,0 +1,29 @@
+nodes:
+  - address: 11.0.10.100
+    user: centos
+    role: [controlplane,etcd]
+  - address: 11.0.10.101
+    user: centos
+    role: [controlplane,etcd]
+  - address: 11.0.10.102
+    user: centos
+    role: [controlplane,etcd]
+  - address: 11.0.10.103
+    user: centos
+    role: [worker]
+  - address: 11.0.10.104
+    user: centos
+    role: [worker]
+
+ignore_docker_version: true
+cluster_name: k8sclus01
+kubernetes_version: "v1.15.5-rancher1-2"
+
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h
+
+network:
+  plugin: flannel
